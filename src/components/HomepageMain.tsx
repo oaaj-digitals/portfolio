@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { styled as s } from "styled-components";
 
 import SkillsCard from "./SkillsCard";
 import Section from "./Section";
@@ -10,6 +11,7 @@ import creativeCardImg from "../assets/images/milad-fakurian-FTrDy_oxjmA-unsplas
 import LogoBgImg from "../assets/images/logo black.svg";
 import CreativeBgImg from "../assets/images/layer-group.svg";
 import WebBgImg from "../assets/images/globe.svg";
+import { Link } from "react-router-dom";
 
 const frontendSkills = ["HTML", "CSS", "JavaScript", "TypeScript", "React"];
 const backendSkills = ["MySQL", "Django", "NodeJS"];
@@ -21,6 +23,38 @@ const creativeSkills = [
 	"Adobe Illustrator",
 	"Adobe Photoshop",
 ];
+
+const AboutBox = s.div`
+	width: 75%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
+
+const AboutTextBox = s.div`
+	width: 55%;
+	display: flex;
+	flex-direction:column;
+	gap: 2rem;
+
+	text-align:justify;
+
+	& .btn {
+		align-self:flex-start;
+		font: var(--tertiary-heading-font);
+		letter-spacing: 2px;
+		background-color: var(--color-gray);
+		color:var(--color-white);
+		padding: .5rem 1rem;
+		border-radius: .6rem;
+		transition: box-shadow .3s ease;
+	}
+
+	& .btn:hover{
+		background:linear-gradient(to right bottom, var(--light-green), var(--dark-green));
+		box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.3);
+	}
+`;
 
 const HomepageMain = () => {
 	const [webDevImgs, setWebDevImgs] = useState([
@@ -76,6 +110,29 @@ const HomepageMain = () => {
 						galleryImgs={webDevImgs}
 					></FeaturedCard>
 				</>
+			</Section>
+
+			<Section title="About Me" height="70vh">
+				<AboutBox>
+					<AboutTextBox>
+						<p>
+							<div>
+								I am a Web Developer and Creative Designer based
+								in Nigeria.
+							</div>
+							<div>
+								I am highly skilled with more than 2 years
+								experience in the industry, I am a dreamer and
+								fanatic of all things digital.
+							</div>
+						</p>
+						<Link to="/about" className="btn">
+							More
+						</Link>
+					</AboutTextBox>
+
+					<img src={LogoBgImg} width="30%" />
+				</AboutBox>
 			</Section>
 		</main>
 	);
