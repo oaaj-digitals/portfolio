@@ -6,6 +6,7 @@ interface Props {
 	titlePosition?: string;
 	children: ReactNode;
 	height?: string;
+	snapScroll?: boolean;
 }
 
 const SectionBox = s.section`
@@ -44,9 +45,21 @@ const SectionMain = s.div`
     align-items: center;
 `;
 
-const Section = ({ title, titlePosition, children, height }: Props) => {
+const Section = ({
+	title,
+	titlePosition,
+	children,
+	height,
+	snapScroll,
+}: Props) => {
 	return (
-		<SectionBox id={title} style={{ height: height ? height : "100vh" }}>
+		<SectionBox
+			id={title}
+			style={{
+				height: height ? height : "100vh",
+				scrollSnapAlign: snapScroll === false ? "none" : "start",
+			}}
+		>
 			<SectionTitleBox className={titlePosition}>
 				<SectionTitle>{title}</SectionTitle>
 				<TitleUnderline />
