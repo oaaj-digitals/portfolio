@@ -32,6 +32,15 @@
 	--color-white: #fefefe;
 	--color-black: #161616;
 	--color-gray: #707070;
+
+	--light-green: #7ed56f;
+	--dark-green: #229971;
+
+	--light-orange: #ffb900;
+	--dark-orange: #ff7730;
+
+	--light-blue: #2998ff;
+	--dark-blue: #4637cc;
 }
 
 *,
