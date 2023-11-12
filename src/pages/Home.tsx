@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styled as s } from "styled-components";
 
 import Header from "../components/Header";
 import Section from "../components/Section";
 import SkillsCard from "../components/SkillsCard";
-import FeaturedCard from "../components/FeaturedCard";
+import FeaturedCard, { GalleryImgObject } from "../components/FeaturedCard";
 import Footer from "../components/footer";
 
 import frontendCardImg from "../assets/images/milad-fakurian-AVnqBjUdteo-unsplash.jpg";
@@ -59,14 +59,18 @@ const AboutTextBox = s.div`
 `;
 
 const Home = () => {
-	const [webDevImgs, setWebDevImgs] = useState([
-		{ id: 1, src: frontendCardImg },
-		{ id: 2, src: backendCardImg },
-		{ id: 3, src: creativeCardImg },
-		{ id: 5, src: backendCardImg },
-		{ id: 6, src: creativeCardImg },
-		{ id: 4, src: frontendCardImg },
-	]);
+	const [webDevImgs, setWebDevImgs] = useState<GalleryImgObject[]>([]);
+
+	useEffect(() => {
+		setWebDevImgs([
+			{ id: 1, src: frontendCardImg },
+			{ id: 2, src: backendCardImg },
+			{ id: 3, src: creativeCardImg },
+			{ id: 5, src: backendCardImg },
+			{ id: 6, src: creativeCardImg },
+			{ id: 4, src: frontendCardImg },
+		]);
+	}, []);
 
 	return (
 		<>

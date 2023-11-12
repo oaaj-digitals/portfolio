@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { styled as s, keyframes } from "styled-components";
 import OaajLogo from "../assets/images/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,6 @@ import {
 	faGithub,
 	faInstagram,
 	faXTwitter,
-	faGooglePlusG,
 } from "@fortawesome/free-brands-svg-icons";
 import { useEffect, useState } from "react";
 
