@@ -1,15 +1,14 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
-import HomepageMain from "./components/HomepageMain";
 import Footer from "./components/footer";
+import Home from "./pages/Home";
 
 function App() {
 	return (
 		<Router>
-			<Header isFull={true} />
-			<HomepageMain></HomepageMain>
-			<Footer></Footer>
+			<Routes>
+				<Route path="/" element={<Home />}></Route>
+			</Routes>
 		</Router>
 	);
 }
