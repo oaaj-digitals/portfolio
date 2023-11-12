@@ -3,13 +3,13 @@ import { ReactNode } from "react";
 
 interface Props {
 	title: string;
-	titlePosition: string;
+	titlePosition?: string;
 	children: ReactNode;
+	height?: string;
 }
 
 const SectionBox = s.section`
     width: 100%;
-    height: 100vh;
     padding: 2rem 4rem;
     display:flex;
     flex-direction:column;
@@ -44,9 +44,9 @@ const SectionMain = s.div`
     align-items: center;
 `;
 
-const Section = ({ title, titlePosition, children }: Props) => {
+const Section = ({ title, titlePosition, children, height }: Props) => {
 	return (
-		<SectionBox id={title}>
+		<SectionBox id={title} style={{ height: height ? height : "100vh" }}>
 			<SectionTitleBox className={titlePosition}>
 				<SectionTitle>{title}</SectionTitle>
 				<TitleUnderline />
