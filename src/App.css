@@ -2,6 +2,7 @@
 	font-family: Along;
 	src: url("./assets/fonts/Along Sans Medium.otf");
 	src: url("./assets/fonts/Alongsans Medium.ttf");
+	font-display: fallback;
 }
 
 @font-face {
@@ -9,6 +10,7 @@
 	font-weight: 700;
 	src: url("./assets/fonts/Along Sans Semi Bold.otf");
 	src: url("./assets/fonts/Along Sans Semi Bold.ttf");
+	font-display: fallback;
 }
 
 @font-face {
@@ -16,18 +18,20 @@
 	font-weight: 900;
 	src: url("./assets/fonts/Along Sans Extra Bold.otf");
 	src: url("./assets/fonts/Along Sans Extra Bold.ttf");
+	font-display: fallback;
 }
 
 @font-face {
 	font-family: Aquire;
 	src: url("./assets/fonts/AquireBold.otf");
+	font-display: block;
 }
 
 :root {
 	--default-font-size: 1.6rem;
-	--primary-heading-font: 900 11rem "Along";
-	--secondary-heading-font: 700 3rem "Along";
-	--tertiary-heading-font: 700 1.6rem "Along";
+	--primary-heading-font: 900 11rem "Along", "Trebuchet MS";
+	--secondary-heading-font: 700 3rem "Along", "Trebuchet MS";
+	--tertiary-heading-font: 700 1.6rem "Along", "Trebuchet MS";
 
 	--color-white: #fefefe;
 	--color-black: #161616;
@@ -50,7 +54,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	position: relative;
-	font-family: "Along";
+	font-family: "Along", "Trebuchet MS";
 	user-select: none;
 }
 
