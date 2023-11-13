@@ -31,6 +31,8 @@ const CardImgBox = s.div`
 
 const CardImg = s.img`
     width: 100%;
+    height:100%;
+    object-fit: cover;
     blend-mode: overlay;
     opacity: .8;
     scale: 1.1;
