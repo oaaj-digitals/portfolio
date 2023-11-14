@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 
 import LogoImg from "../assets/images/logo black.svg";
 import Timeline from "../components/Timeline";
+import Skill from "../components/Skill";
 
 const AboutBox = s.div`
 	width: 80%;
@@ -23,6 +24,15 @@ const AboutTextBox = s.div`
 		text-align:justify;
 		whitespace:nowrap;
 	}
+`;
+
+const SkillBox = s.div`	
+	width:60%;
+	padding 2rem 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 3rem;
 `;
 
 const About = () => {
@@ -94,6 +104,23 @@ const About = () => {
 		},
 	];
 
+	const Skills = [
+		{ id: 1, title: "HTML", level: 85 },
+		{ id: 2, title: "CSS", level: 85 },
+		{ id: 3, title: "JavaScript", level: 70 },
+		{ id: 4, title: "TypeScript", level: 60 },
+		{ id: 5, title: "React", level: 65 },
+		{ id: 6, title: "Django", level: 60 },
+		{ id: 7, title: "MySQL", level: 70 },
+		{ id: 8, title: "Figma", level: 60 },
+		{ id: 9, title: "Adobe XD", level: 70 },
+		{ id: 10, title: "Adobe Illustrator", level: 75 },
+		{ id: 11, title: "Adobe Photoshop", level: 75 },
+		{ id: 12, title: "CorelDraw", level: 65 },
+		{ id: 13, title: "Blender", level: 70 },
+		{ id: 14, title: "Git", level: 75 },
+	];
+
 	return (
 		<>
 			<Header isFull={false} />
@@ -131,6 +158,18 @@ const About = () => {
 					titlePosition="left"
 				>
 					<Timeline data={Education} />
+				</Section>
+
+				<Section title="Professional Skills">
+					<SkillBox>
+						{Skills.map((skill) => (
+							<Skill
+								id={skill.id}
+								title={skill.title}
+								level={skill.level}
+							></Skill>
+						))}
+					</SkillBox>
 				</Section>
 
 				<Section title="Experince" titlePosition="left" height="70vh">
