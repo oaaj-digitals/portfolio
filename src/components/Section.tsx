@@ -17,6 +17,7 @@ const SectionBox = s.section`
 `;
 
 const SectionTitleBox = s.div`
+	flex-shrink: 0;
     align-self:flex-start;
     
     &.left{
@@ -38,7 +39,7 @@ const TitleUnderline = s.div`
 
 const SectionMain = s.div`
     width:100%;
-    flex-grow:1;
+	height: 100%;
 
     display: flex;
     justify-content: space-evenly;
