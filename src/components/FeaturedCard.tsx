@@ -76,7 +76,7 @@ const FeaturedCard = ({
 	return (
 		<Card>
 			<Link
-				to="/"
+				to={"/projects#'" + cardTitle + "'"}
 				className="preview-box"
 				style={{ backgroundImage: background }}
 			>
