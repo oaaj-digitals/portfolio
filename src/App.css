@@ -95,3 +95,28 @@ a {
 li {
 	list-style: none;
 }
+
+/* Media Breakpoints */
+/* 
+	0	- 600px(37.5em): 		Phones
+	600 - 900px(56.25em): 		Tablet portriat
+	900 - 1200px(75em): 		Tablet landscape	
+*/
+
+@media (max-width: 75em) {
+	html {
+		font-size: 56.25%; /* 1rem = 9px*/
+	}
+}
+
+@media (max-width: 56.25em) {
+	html {
+		font-size: 50%; /* 1rem = 8px*/
+	}
+}
+
+@media (max-width: 37.5em) {
+	html {
+		font-size: 43.75%; /* 1rem = 7px*/
+	}
+}

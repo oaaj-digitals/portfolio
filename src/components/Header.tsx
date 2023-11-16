@@ -8,17 +8,31 @@ import {
 	faInstagram,
 	faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 const HeaderEle = s.header`
 	width: 100%;
 	height: 100vh;
 	background-color: var(--color-black);
-	padding: 3rem;
+	padding: 4rem 3rem;
 	overflow: hidden;
 	display:flex;
 	flex-direction: column;
 	justify-content:space-between;
+
+	@media (max-width: ${breakpoints.tabLand}) {
+		padding: 3rem;
+	}
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		padding: 4rem;
+	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		padding: 5rem 3rem;
+	}
 `;
 
 const BgLogo = s.img`
@@ -33,14 +47,13 @@ const BgLogo = s.img`
 
 const HeaderTop = s.div`
 	width: 100%;
-	height: 4rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 `;
 
 const LogoBox = s.div`
-	height: 100%;
+	height: 5rem;
 	display:flex;
 	align-items: center;
 	gap: 1rem;
@@ -61,8 +74,52 @@ const Nav = s.nav`
 	display: flex;
 	gap: 4rem;
 	font-weight: 700 !important;
+	width: fit-content;
+	height: fit-content;
+	transition: all 0.5s ease;
+
 	& > a:hover{
 		color: var(--color-white);
+	}
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		display: none;
+		width:100%;
+		height:100%;
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 90;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 5rem;
+		padding: 20rem 4rem 4rem;
+		
+		
+		background:rgba(0,0,0,0.7);
+		backdrop-filter: blur(10px);
+
+		& > a{
+			width: 100%;
+			height: fit-content;
+			padding: 2rem 0;
+			text-align: center;
+			font-size: 4rem;
+		}
+		
+		& > a:hover {
+			color: var(--color-black);
+			background: var(--color-white);
+		}
+	}
+`;
+
+const MenuBtn = s.div`
+	display: none;
+	z-index: 100;
+	@media (max-width: ${breakpoints.tabPort}) {
+		display: block;
 	}
 `;
 
@@ -91,11 +148,23 @@ const HeaderMain = s.h1`
 		letter-spacing: .2rem;
 		line-height: .8;
 	}
+
+	@media (max-width: ${breakpoints.tabLand}) {
+		padding-left: 10vw;
+	}
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		
+	}
+
+	@media (max-width: ${breakpoints.phone}) {
+
+	}
 `;
 
 const SocialMediaBox = s.div`
 	display: flex;
-	gap: 2rem;
+	gap: 3rem;
 	& > a:hover{
 		color: var(--color-white);
 	}
@@ -109,6 +178,15 @@ interface Props {
 
 function Header({ isFull }: Props) {
 	const [currentSlide, setCurrentSlide] = useState(0);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	const handleMenuOpen = (state: boolean) => {
+		setIsMenuOpen(!state);
+	};
+
+	useEffect(() => {
+		setIsMenuOpen(false);
+	}, []);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -119,7 +197,7 @@ function Header({ isFull }: Props) {
 	}, [slides.length]);
 
 	return (
-		<HeaderEle style={isFull == false ? { height: "15vh" } : {}}>
+		<HeaderEle style={isFull == false ? { height: "auto" } : {}}>
 			<HeaderTop>
 				<Link to="/">
 					<LogoBox>
@@ -132,17 +210,30 @@ function Header({ isFull }: Props) {
 					</LogoBox>
 				</Link>
 
-				<Nav>
-					<Link className="nav__link" to="/">
-						Home
-					</Link>
-					<Link className="nav__link" to="/projects">
-						Projects
-					</Link>
-					<Link className="nav__link" to="/about">
-						About Me
-					</Link>
-				</Nav>
+				<div>
+					<MenuBtn
+						onClick={() => {
+							handleMenuOpen(isMenuOpen);
+						}}
+					>
+						<FontAwesomeIcon
+							icon={isMenuOpen ? faXmark : faBars}
+							size="3x"
+						/>
+					</MenuBtn>
+
+					<Nav style={isMenuOpen ? { display: "flex" } : {}}>
+						<Link className="nav__link" to="/">
+							Home
+						</Link>
+						<Link className="nav__link" to="/projects">
+							Projects
+						</Link>
+						<Link className="nav__link" to="/about">
+							About Me
+						</Link>
+					</Nav>
+				</div>
 			</HeaderTop>
 
 			{isFull && (
@@ -164,22 +255,22 @@ function Header({ isFull }: Props) {
 							href="https://behance.net/oaaj_digital"
 							target="_blank"
 						>
-							<FontAwesomeIcon icon={faBehance} size="lg" />
+							<FontAwesomeIcon icon={faBehance} size="2x" />
 						</a>
 						<a
 							href="https://github.com/oaaj-digitals"
 							target="_blank"
 						>
-							<FontAwesomeIcon icon={faGithub} size="lg" />
+							<FontAwesomeIcon icon={faGithub} size="2x" />
 						</a>
 						<a
 							href="https://instagram.com/oaaj_digital"
 							target="_blank"
 						>
-							<FontAwesomeIcon icon={faInstagram} size="lg" />
+							<FontAwesomeIcon icon={faInstagram} size="2x" />
 						</a>
 						<a href="https://x.com/oaaj_digital" target="_blank">
-							<FontAwesomeIcon icon={faXTwitter} size="lg" />
+							<FontAwesomeIcon icon={faXTwitter} size="2x" />
 						</a>
 					</SocialMediaBox>
 				</>
