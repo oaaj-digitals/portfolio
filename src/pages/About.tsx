@@ -69,13 +69,13 @@ const About = () => {
 			period: "2022",
 		},
 		{
-			id: 4,
+			id: 6,
 			experience: "Git",
 			institute: "Scutigen",
 			period: "2023",
 		},
 		{
-			id: 5,
+			id: 7,
 			experience: "Computer Science",
 			program: "Higher National Diploma",
 			institute: "Yaba College of Technology",
@@ -165,6 +165,7 @@ const About = () => {
 						{Skills.map((skill) => (
 							<Skill
 								id={skill.id}
+								key={skill.id}
 								title={skill.title}
 								level={skill.level}
 							></Skill>

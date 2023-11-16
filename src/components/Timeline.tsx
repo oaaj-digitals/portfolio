@@ -33,6 +33,7 @@ const Timeline = ({ data }: Props) => {
 			{data.map((item) => (
 				<TimeStamp
 					id={item.id}
+					key={item.id}
 					experience={item.experience}
 					program={item.program}
 					institute={item.institute}
