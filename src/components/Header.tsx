@@ -22,17 +22,6 @@ const HeaderEle = s.header`
 	flex-direction: column;
 	justify-content:space-between;
 
-	@media (max-width: ${breakpoints.tabLand}) {
-		padding: 3rem;
-	}
-
-	@media (max-width: ${breakpoints.tabPort}) {
-		padding: 4rem;
-	}
-
-	@media (max-width: ${breakpoints.phone}) {
-		padding: 5rem 3rem;
-	}
 `;
 
 const BgLogo = s.img`
@@ -53,7 +42,7 @@ const HeaderTop = s.div`
 `;
 
 const LogoBox = s.div`
-	height: 5rem;
+	height: 4rem;
 	display:flex;
 	align-items: center;
 	gap: 1rem;
@@ -94,11 +83,10 @@ const Nav = s.nav`
 		justify-content: flex-start;
 		align-items: center;
 		gap: 5rem;
-		padding: 20rem 4rem 4rem;
+		padding: 20rem 4rem 4rem;		
 		
-		
-		background:rgba(0,0,0,0.7);
-		backdrop-filter: blur(10px);
+		background:rgba(0,0,0,0.8);
+		backdrop-filter: blur(25px);
 
 		& > a{
 			width: 100%;
