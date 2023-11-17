@@ -85,7 +85,11 @@ const BgText = s.p`
 
 `;
 
-const projectSet = {
+type ProjectsData = {
+	[key: string]: { id: number; src: string }[];
+};
+
+const projectSet: ProjectsData = {
 	WebDevelopment: [
 		{ id: 0, src: frontendCardImg },
 		{ id: 2, src: backendCardImg },
@@ -95,13 +99,11 @@ const projectSet = {
 		{ id: 2, src: backendCardImg },
 		{ id: 0, src: frontendCardImg },
 		{ id: 3, src: creativeCardImg },
-		{},
 	],
 	CreativeDesign: [
 		{ id: 3, src: creativeCardImg },
 		{ id: 0, src: frontendCardImg },
 		{ id: 2, src: backendCardImg },
-		{},
 	],
 };
 
