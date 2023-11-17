@@ -113,6 +113,11 @@ li {
 	html {
 		font-size: 50%; /* 1rem = 8px*/
 	}
+
+	header,
+	section {
+		scroll-snap-align: none !important;
+	}
 }
 
 @media (max-width: 37.5em) {

@@ -1,5 +1,6 @@
 import { styled as s } from "styled-components";
 import { ReactNode } from "react";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 interface Props {
 	title: string;
@@ -9,11 +10,19 @@ interface Props {
 	snapScroll?: boolean;
 }
 
-const SectionBox = s.section`
+const SectionBox = s.section<{ height?: string; scrollSnapAlign?: boolean }>`
     width: 100%;
-    padding: 2rem 4rem;
+	height: ${(props) => (props.height ? props.height : "100vh")};
+	max-height: max-content;
+	scroll-snap-align: ${(props) =>
+		props.scrollSnapAlign === false ? "none" : "start"};
+    padding: 4rem;
     display:flex;
     flex-direction:column;
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		height: max-content;
+	}
 `;
 
 const SectionTitleBox = s.div`
@@ -39,11 +48,18 @@ const TitleUnderline = s.div`
 
 const SectionMain = s.div`
     width:100%;
-	height: 100%;
+	min-height: 100%;
 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		padding: 5rem 0 0;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 5rem;
+	}
 `;
 
 const Section = ({
@@ -54,13 +70,7 @@ const Section = ({
 	snapScroll,
 }: Props) => {
 	return (
-		<SectionBox
-			id={title}
-			style={{
-				height: height ? height : "100vh",
-				scrollSnapAlign: snapScroll === false ? "none" : "start",
-			}}
-		>
+		<SectionBox id={title} height={height} scrollSnapAlign={snapScroll}>
 			<SectionTitleBox className={titlePosition}>
 				<SectionTitle>{title}</SectionTitle>
 				<TitleUnderline />
