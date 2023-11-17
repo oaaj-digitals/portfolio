@@ -1,4 +1,5 @@
 import { styled as s } from "styled-components";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 interface Props {
 	cardTitle: string;
@@ -13,10 +14,20 @@ const Card = s.div`
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     cursor: pointer;
     box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    
+    @media (max-width: ${breakpoints.tabPort}) {
+        width: 40%;
+        height: 35vh;
+        box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
+	}
 
-    // transform: rotateY(180deg);
+    @media (max-width: ${breakpoints.phone}) {
+        width: 50%;
+        height: 30vh;
+	}
 `;
 
 const CardImgBox = s.div`
