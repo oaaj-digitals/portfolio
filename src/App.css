@@ -119,9 +119,3 @@ li {
 		scroll-snap-align: none !important;
 	}
 }
-
-@media (max-width: 37.5em) {
-	html {
-		font-size: 43.75%; /* 1rem = 7px*/
-	}
-}
