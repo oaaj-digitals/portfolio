@@ -7,12 +7,27 @@ import Footer from "../components/footer";
 import LogoImg from "../assets/images/logo black.svg";
 import Timeline from "../components/Timeline";
 import Skill from "../components/Skill";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 const AboutBox = s.div`
 	width: 80%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	& > img {
+		width: 25%;
+	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		width: 100%;
+		flex-direction: column;
+		gap: 4rem;
+
+		& > img {
+			width: 60%;
+		}
+	}
 `;
 
 const AboutTextBox = s.div`
@@ -24,6 +39,10 @@ const AboutTextBox = s.div`
 		text-align:justify;
 		whitespace:nowrap;
 	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		width: 100%;
+	}
 `;
 
 const SkillBox = s.div`	
@@ -33,6 +52,14 @@ const SkillBox = s.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 3rem;
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		width: 70%
+	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		width: 100%;
+	}
 `;
 
 const About = () => {
@@ -127,7 +154,7 @@ const About = () => {
 			<main>
 				<Section title="About Me" height="90vh" snapScroll={false}>
 					<AboutBox>
-						<img src={LogoImg} width="25%" />
+						<img src={LogoImg} />
 						<AboutTextBox>
 							<p>
 								Hello, I am{" "}
