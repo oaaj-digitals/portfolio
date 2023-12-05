@@ -1,4 +1,5 @@
 import { styled as s } from "styled-components";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 const TimeStampBox = s.div`
 	width:50%;
@@ -23,7 +24,6 @@ const TimeStampBox = s.div`
 	}
 
 	&:nth-child(odd){
-		// background-color: red;
 		align-self: flex-end;
 		text-align: left;
 	}
@@ -32,6 +32,14 @@ const TimeStampBox = s.div`
 		left: 0;
 		transform: translateX(-50%);
 	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		padding: 0 1.5rem 0 0;
+
+		&:nth-child(odd){
+			padding: 0 0 0 1.5rem;
+		}
+    }
 `;
 
 const Experience = s.p`
@@ -41,6 +49,10 @@ const Experience = s.p`
 
 const Program = s.p`
     font-size: 1rem;
+
+	@media (max-width: ${breakpoints.phone}) {
+		font-size: 1.1rem;
+	}
 `;
 
 const Institute = s.p`
