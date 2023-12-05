@@ -14,6 +14,7 @@ import creativeCardImg from "../assets/images/milad-fakurian-FTrDy_oxjmA-unsplas
 import LogoBgImg from "../assets/images/logo black.svg";
 import CreativeBgImg from "../assets/images/layer-group.svg";
 import WebBgImg from "../assets/images/globe.svg";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 const frontendSkills = ["HTML", "CSS", "JavaScript", "TypeScript", "React"];
 const backendSkills = ["MySQL", "Django", "NodeJS"];
@@ -31,6 +32,10 @@ const AboutBox = s.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (max-width: ${breakpoints.phone}) {
+       width: 100%;
+    }
 `;
 
 const AboutTextBox = s.div`
