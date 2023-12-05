@@ -19,14 +19,14 @@ const Card = s.div`
     box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
     
     @media (max-width: ${breakpoints.tabPort}) {
-        width: 40%;
-        height: 35vh;
+        width: 35vw;
+        height: 50vw;
         box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
 	}
 
     @media (max-width: ${breakpoints.phone}) {
-        width: 50%;
-        height: 30vh;
+        width: 60vw;
+        height: 90vw;
 	}
 `;
 
