@@ -26,7 +26,6 @@ const GalleryBox = s.div`
     align-content: center;
     justify-content: center;
     align-items: center;
-    background: red;
 
     @media (max-width: ${breakpoints.phone}) {
         padding: 10rem 3rem 4rem;
