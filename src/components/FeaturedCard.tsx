@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { styled as s } from "styled-components";
 import Gallery from "./Gallery";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 export interface GalleryImgObject {
 	id: number;
@@ -26,13 +27,16 @@ const Card = s.div`
         width: 100%;
         box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
     }
-    &.preview-box {
+    & .preview-box {
         cursor: pointer;
         width: calc(100vw/3);
+        padding: 3rem 1.5rem;
+        display: flex;
+        align-items: flex-end;
         overflow: hidden;
     }
     &:hover .preview-box {
-        width: calc(100vw/20);
+        width: max-content;
         z-index: 20;
         box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.2);
     }
@@ -44,6 +48,51 @@ const Card = s.div`
     &:hover > div.gallery-box {
         display: grid;
     }
+
+    &:hover  h3 {
+        position: relative;
+        bottom: 0;
+        left: 0;
+    }
+
+    @media (max-width: ${breakpoints.tabPort}) {
+        width: 80%;
+        height: 50vh;
+        align-self: center;
+
+        & .preview-box {
+            width: 100%;
+            height: 100%;
+        }
+	}
+
+    @media (max-width: ${breakpoints.phone}) {
+        width: 90%;
+        height: 70vh;
+
+        &:hover {
+            width: 90%;
+            box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
+        }
+
+        &:hover .preview-box {
+            width: 100%;
+            height: max-content;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        &:hover > div.gallery-box {
+            display: flex;
+        }
+
+        &:hover  h3 {
+            position: relative;
+            bottom: 0;
+            left: 0;
+        }
+	}
 `;
 
 const CardTitle = s.h3`
@@ -51,10 +100,17 @@ const CardTitle = s.h3`
     text-orientation: upright;
     color: var(--color-white);
 
-    position: absolute;
-    left: 1rem;
-    bottom: 2rem;
+
     letter-spacing: -.4rem;
+
+    @media (max-width: ${breakpoints.phone}) {
+        position: absolute;
+        left: 3rem;
+        bottom: 4rem;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        writing-mode: horizontal-tb;
+    }
 `;
 
 const CardImg = s.img`

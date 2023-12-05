@@ -1,5 +1,7 @@
 import { styled as s } from "styled-components";
 import { GalleryImgObject } from "./FeaturedCard";
+import { breakpoints } from "../utils/MediaBreakpoints";
+import GalleryImage from "./GalleryImage";
 
 interface Props {
 	galleryImgs: GalleryImgObject[];
@@ -16,7 +18,6 @@ const GalleryBox = s.div`
     position:absolute;
     top: 0;
     right: 0;
-    z-index: -1;
     overflow: auto;
 
     grid-template-columns: repeat(auto-fill,minmax(calc(100%/4), 1fr));
@@ -24,22 +25,20 @@ const GalleryBox = s.div`
     gap: 1rem;
     align-content: center;
     justify-content: center;
-    justify-self: center;
     align-items: center;
-`;
+    background: red;
 
-const GalleryImage = s.img`
-    height: 100%;
-	width: 100%;
-	object-fit: cover;
-	display: block;
+    @media (max-width: ${breakpoints.phone}) {
+        padding: 10rem 3rem 4rem;
+        flex-wrap: wrap;
+    }
 `;
 
 const GalleryImg = ({ galleryImgs }: Props) => {
 	return (
 		<GalleryBox className="gallery-box">
 			{galleryImgs.map((image) => (
-				<GalleryImage key={image.id} src={image.src} />
+				<GalleryImage key={image.id} id={image.id} src={image.src} />
 			))}
 		</GalleryBox>
 	);
