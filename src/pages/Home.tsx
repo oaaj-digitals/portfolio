@@ -124,15 +124,15 @@ const Home = () => {
 					<AboutBox>
 						<AboutTextBox>
 							<p>
-								<div>
+								<span>
 									I am a Web Developer and Creative Designer
 									based in Nigeria.
-								</div>
-								<div>
+								</span>
+								<span>
 									I am highly skilled with more than 2 years
 									experience in the industry, I am a dreamer
 									and fanatic of all things digital.
-								</div>
+								</span>
 							</p>
 							<Link to="/about" className="btn">
 								More
