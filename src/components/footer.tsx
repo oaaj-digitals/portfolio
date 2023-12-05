@@ -8,6 +8,7 @@ import {
 	faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 const FooterEle = s.footer`
 	width: 100%;
@@ -30,12 +31,31 @@ const FooterEle = s.footer`
     & a:hover{
 		color: var(--color-white);
 	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		height: max-content;
+		padding: 3rem;
+        flex-direction: column;
+		gap: 3rem;
+		align-items: stretch;
+
+		& > div:first-child {
+			order: 3;
+		}
+    }
 `;
 
 const SocialMediaBox = s.div`
 	display: flex;
 	width: 100%;
     justify-content: space-between;
+
+	@media (max-width: ${breakpoints.phone}) {
+		gap: 3rem;
+		justify-content: center;
+		order: -1;
+		margin-bottom: 1rem;
+	}
 `;
 
 const CopyRight = s.div`
@@ -59,6 +79,11 @@ const CenterDiv = s.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+	@media (max-width: ${breakpoints.phone}) {
+		position: static;
+		transform: translate(0,0);
+    }
 `;
 
 const Logo = s.img`
@@ -96,6 +121,21 @@ const Form = s.form`
         border: none;
         border-bottom: 2px solid var(--color-white);
     }
+
+	@media (max-width: ${breakpoints.phone}) {
+		width: 90%;
+
+		& .input-ele {
+			width: 100%;
+			height: 3rem;
+		}
+
+		& .input-ele:focus-visible {
+			outline:none;
+			border: none;
+			border-bottom: 2px solid var(--color-white);
+		}
+	}
 `;
 
 const footer = () => {
@@ -110,19 +150,19 @@ const footer = () => {
 				</CopyRight>
 				<SocialMediaBox>
 					<a href="https://behance.net/oaaj_digital" target="_blank">
-						<FontAwesomeIcon icon={faBehance} size="lg" />
+						<FontAwesomeIcon icon={faBehance} size="2xl" />
 					</a>
 					<a href="https://github.com/oaaj-digitals" target="_blank">
-						<FontAwesomeIcon icon={faGithub} size="lg" />
+						<FontAwesomeIcon icon={faGithub} size="2xl" />
 					</a>
 					<a
 						href="https://instagram.com/oaaj_digital"
 						target="_blank"
 					>
-						<FontAwesomeIcon icon={faInstagram} size="lg" />
+						<FontAwesomeIcon icon={faInstagram} size="2xl" />
 					</a>
 					<a href="https://x.com/oaaj_digital" target="_blank">
-						<FontAwesomeIcon icon={faXTwitter} size="lg" />
+						<FontAwesomeIcon icon={faXTwitter} size="2xl" />
 					</a>
 				</SocialMediaBox>
 			</div>
