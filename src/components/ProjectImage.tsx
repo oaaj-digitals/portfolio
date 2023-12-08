@@ -1,27 +1,16 @@
 import { styled as s } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLink, faG } from "@fortawesome/free-solid-svg-icons";
-import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 import {
 	faHtml5,
 	faReact,
 	faCss3,
 	faGit,
-	faJsSquare,
-	faSquareJs,
 	faFigma,
 	faNodeJs,
 	faJs,
-	faCss3Alt,
-	IconDefinition,
-	faPython,
 } from "@fortawesome/free-brands-svg-icons";
-import JavascriptIcon from "@mui/icons-material/Javascript";
 import { ReactNode } from "react";
-
-type ProjectsData = {
-	[key: string]: { id: number; src: string; tools: string[] }[];
-};
 
 interface ToolsType {
 	[key: string]: ReactNode;
