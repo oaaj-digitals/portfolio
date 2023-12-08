@@ -86,24 +86,24 @@ const BgText = s.p`
 `;
 
 type ProjectsData = {
-	[key: string]: { id: number; src: string }[];
+	[key: string]: { id: number; previewImg: string; tools: string[] }[];
 };
 
 const projectSet: ProjectsData = {
 	WebDevelopment: [
-		{ id: 0, src: frontendCardImg },
-		{ id: 2, src: backendCardImg },
-		{ id: 3, src: creativeCardImg },
+		{ id: 0, previewImg: frontendCardImg, tools: ["React", "JavaScript"] },
+		{ id: 2, previewImg: backendCardImg, tools: ["React", "JavaScript"] },
+		{ id: 3, previewImg: creativeCardImg, tools: ["React", "JavaScript"] },
 	],
 	LogoBranding: [
-		{ id: 2, src: backendCardImg },
-		{ id: 0, src: frontendCardImg },
-		{ id: 3, src: creativeCardImg },
+		{ id: 2, previewImg: backendCardImg, tools: ["React", "JavaScript"] },
+		{ id: 0, previewImg: frontendCardImg, tools: ["React", "JavaScript"] },
+		{ id: 3, previewImg: creativeCardImg, tools: ["React", "JavaScript"] },
 	],
 	CreativeDesign: [
-		{ id: 3, src: creativeCardImg },
-		{ id: 0, src: frontendCardImg },
-		{ id: 2, src: backendCardImg },
+		{ id: 3, previewImg: creativeCardImg, tools: ["React", "JavaScript"] },
+		{ id: 0, previewImg: frontendCardImg, tools: ["React", "JavaScript"] },
+		{ id: 2, previewImg: backendCardImg, tools: ["React", "JavaScript"] },
 	],
 };
 
@@ -142,8 +142,9 @@ const Projects = () => {
 					{projects.map((project) => (
 						<ProjectImage
 							key={project.id}
-							src={project.src}
-							projectLink={project.src}
+							previewImg={project.previewImg}
+							projectLink={project.previewImg}
+							tools={project.tools}
 						/>
 					))}
 				</ProjectsGallery>

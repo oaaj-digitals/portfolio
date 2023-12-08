@@ -1,10 +1,52 @@
 import { styled as s } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
+import { faExternalLink, faG } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import {
+	faHtml5,
+	faReact,
+	faCss3,
+	faGit,
+	faJsSquare,
+	faSquareJs,
+	faFigma,
+	faNodeJs,
+	faJs,
+	faCss3Alt,
+	IconDefinition,
+	faPython,
+} from "@fortawesome/free-brands-svg-icons";
+import JavascriptIcon from "@mui/icons-material/Javascript";
+import { ReactNode } from "react";
+
+type ProjectsData = {
+	[key: string]: { id: number; src: string; tools: string[] }[];
+};
+
+interface ToolsType {
+	[key: string]: ReactNode;
+}
+
+const TOOLS: ToolsType = {
+	HTML: <FontAwesomeIcon icon={faHtml5} />,
+	CSS: <FontAwesomeIcon icon={faCss3} />,
+	JavaScript: <FontAwesomeIcon icon={faJs} />,
+	TypeScript: <FontAwesomeIcon icon={faReact} />,
+	React: <FontAwesomeIcon icon={faReact} />,
+	Django: <FontAwesomeIcon icon={faReact} />,
+	MySQL: <FontAwesomeIcon icon={faReact} />,
+	Figma: <FontAwesomeIcon icon={faFigma} />,
+	AdobeXd: <FontAwesomeIcon icon={faReact} />,
+	AdobePhotoshop: <FontAwesomeIcon icon={faReact} />,
+	AdobeIllstrautor: <FontAwesomeIcon icon={faReact} />,
+	CorelDraw: <FontAwesomeIcon icon={faReact} />,
+	Blender: <FontAwesomeIcon icon={faReact} />,
+	Git: <FontAwesomeIcon icon={faGit} />,
+	NodeJs: <FontAwesomeIcon icon={faNodeJs} />,
+};
 
 interface Props {
-	src: string;
+	previewImg: string;
 	projectLink?: string;
 	tools?: string[];
 }
@@ -14,8 +56,7 @@ const ImageBox = s.div`
 	height: 100%;
     
     &:hover .back-side {
-        z-index: 1;
-        height: 100%;
+        opacity: 1;
     }
 `;
 
@@ -25,56 +66,76 @@ const Image = s.img`
 
 const Backside = s.div`
     width: 100%;
-    height: 0;
+    height: 100%;
+	padding: 0 3rem 2rem;
     overflow: hidden;
-    background: linear-gradient(to right bottom, var(--light-green), var(--dark-green));
+    background: linear-gradient(to right bottom, var(--color-black), rgba(0,0,0,0.4));
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    opacity: 0;
     transition: all .5s ease;
     display: flex;
-    justify-content: center;
-    align-items: center;
+	flex-direction: column;
+    justify-content: space-between;
     gap: 3rem;
 
-    & > *{
-        height: fit-content;
+    & > a{
+        height: max-content;
         display: inline;
         color: var(--color-white);
         cursor: pointer;
     }
 
-    & > *:hover{
-        color: var(--color-gray);
+    & > a:hover{
+        color: var(--dark-green);
     }
 
 `;
 
-const ProjectImage = ({ src, projectLink }: Props) => {
-	const copyToClipboard = () => {
-		projectLink == ("" || undefined)
-			? null
-			: navigator.clipboard
-					.writeText(projectLink)
-					.then(() => {
-						alert("Link copied to clipboard.");
-					})
-					.catch(() => {
-						alert("Error, unable to copy.");
-					});
-	};
+const ProjectTools = s.div`
+    display: flex;
+    gap: 1rem;
+    align-self: flex-end;
+`;
+
+const Tool = s.div`
+    min-width: 3rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-gray);
+    background-color: var(--color-white);
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0% 80%);
+    box-shadow: inset 2px 2px 4px 1px rgba(0,0,0,0.3);
+    font-size: 2rem;
+`;
+
+const ProjectImage = ({ previewImg, projectLink, tools }: Props) => {
 	return (
 		<ImageBox>
-			<Image src={src} />
+			<Image src={previewImg} />
 			{projectLink != ("" || undefined) ? (
 				<Backside className="back-side">
-					<div onClick={copyToClipboard} title="copy">
-						<FontAwesomeIcon icon={faCopy} size="2xl" />
-					</div>
-					<a target="_blank" href={projectLink} title="more">
-						<FontAwesomeIcon icon={faExternalLink} size="2xl" />
-					</a>
+					{tools && (
+						<ProjectTools>
+							{tools.map((tool) => (
+								<Tool>{TOOLS[tool]}</Tool>
+							))}
+						</ProjectTools>
+					)}
+
+					{projectLink && (
+						<a
+							target="_blank"
+							href={projectLink}
+							title="View Project"
+							aria-label="Link to view the detailed project"
+						>
+							<FontAwesomeIcon icon={faExternalLink} size="2xl" />
+						</a>
+					)}
 				</Backside>
 			) : null}
 		</ImageBox>
