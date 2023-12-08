@@ -87,11 +87,7 @@ const CenterDiv = s.div`
 `;
 
 const Logo = s.img`
-	width: 5vw;
-
-	@media (max-width: ${breakpoints.phone}) {
-		width: 10vw;
-    }
+	width: 5rem;
 `;
 
 const Nav = s.nav`
