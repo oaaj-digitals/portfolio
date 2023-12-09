@@ -92,7 +92,7 @@ const GalleryImage = ({ id, src }: Props) => {
 					handleImagePreview(isPreview);
 				}}
 			>
-				<Image src={src} />
+				<Image src={src} alt={"Featured Project Image" + id} />
 			</GalleryImageBox>
 			{isPreview ? (
 				<ImgPreview>
@@ -105,7 +105,7 @@ const GalleryImage = ({ id, src }: Props) => {
 					</MenuBtn>
 					<img
 						src={src}
-						alt=""
+						alt={"Featured Project Image" + id + "Preview"}
 						onClick={() => {
 							handlePreviewClose(isPreview);
 						}}

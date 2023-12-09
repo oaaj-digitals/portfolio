@@ -135,9 +135,10 @@ const FeaturedCard = ({
 				to={"/projects#'" + cardTitle + "'"}
 				className="preview-box"
 				style={{ backgroundImage: background }}
+				aria-label={"Link to " + cardTitle + " projects list"}
 			>
 				<CardTitle>{cardTitle}</CardTitle>
-				<CardImg src={cardImg}></CardImg>
+				<CardImg src={cardImg} alt=""></CardImg>
 			</Link>
 			<Gallery galleryImgs={galleryImgs} />
 		</Card>

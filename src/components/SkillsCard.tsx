@@ -79,7 +79,7 @@ const SkillsCard = ({ cardTitle, cardImg, skills }: Props) => {
 	return (
 		<Card>
 			<CardImgBox>
-				<CardImg src={cardImg} />
+				<CardImg src={cardImg} alt={cardTitle + " card image"} />
 				<CardTitle>{cardTitle}</CardTitle>
 			</CardImgBox>
 			<CardMain>

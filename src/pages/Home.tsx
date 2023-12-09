@@ -144,7 +144,7 @@ const Home = () => {
 							</Link>
 						</AboutTextBox>
 
-						<img src={LogoBgImg} width="30%" />
+						<img src={LogoBgImg} width="30%" alt="Oaaj Logo" />
 					</AboutBox>
 				</Section>
 			</main>

@@ -149,19 +149,32 @@ const footer = () => {
 					<p>Copyright &copy; 2023</p>
 				</CopyRight>
 				<SocialMediaBox>
-					<a href="https://behance.net/oaaj_digital" target="_blank">
+					<a
+						href="https://behance.net/oaaj_digital"
+						target="_blank"
+						aria-label="Link to Behance account"
+					>
 						<FontAwesomeIcon icon={faBehance} size="2xl" />
 					</a>
-					<a href="https://github.com/oaaj-digitals" target="_blank">
+					<a
+						href="https://github.com/oaaj-digitals"
+						target="_blank"
+						aria-label="Link to GitHub account"
+					>
 						<FontAwesomeIcon icon={faGithub} size="2xl" />
 					</a>
 					<a
 						href="https://instagram.com/oaaj_digital"
 						target="_blank"
+						aria-label="Link to Instagram account"
 					>
 						<FontAwesomeIcon icon={faInstagram} size="2xl" />
 					</a>
-					<a href="https://x.com/oaaj_digital" target="_blank">
+					<a
+						href="https://x.com/oaaj_digital"
+						target="_blank"
+						aria-label="Link to X(Twitter) account"
+					>
 						<FontAwesomeIcon icon={faXTwitter} size="2xl" />
 					</a>
 				</SocialMediaBox>
@@ -169,13 +182,25 @@ const footer = () => {
 			<CenterDiv>
 				<Logo src={OaajLogo} alt="Oaaj Logo" title="Oaaj Logo" />
 				<Nav>
-					<Link className="nav__link" to="/">
+					<Link
+						className="nav__link"
+						to="/"
+						aria-label="Link to Homepage"
+					>
 						Home
 					</Link>
-					<Link className="nav__link" to="/projects">
+					<Link
+						className="nav__link"
+						to="/projects"
+						aria-label="Link to Projects page"
+					>
 						Projects
 					</Link>
-					<Link className="nav__link" to="/about">
+					<Link
+						className="nav__link"
+						to="/about"
+						aria-label="Link to About page"
+					>
 						About Me
 					</Link>
 				</Nav>

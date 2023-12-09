@@ -154,7 +154,7 @@ const About = () => {
 			<main>
 				<Section title="About Me" height="90vh" snapScroll={false}>
 					<AboutBox>
-						<img src={LogoImg} />
+						<img src={LogoImg} alt="Oaaj Logo" />
 						<AboutTextBox>
 							<p>
 								Hello, I am{" "}

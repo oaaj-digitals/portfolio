@@ -211,13 +211,25 @@ function Header({ isFull }: Props) {
 					</MenuBtn>
 
 					<Nav style={isMenuOpen ? { display: "flex" } : {}}>
-						<Link className="nav__link" to="/">
+						<Link
+							className="nav__link"
+							to="/"
+							aria-label="Link to Homepage"
+						>
 							Home
 						</Link>
-						<Link className="nav__link" to="/projects">
+						<Link
+							className="nav__link"
+							to="/projects"
+							aria-label="Link to Projects page"
+						>
 							Projects
 						</Link>
-						<Link className="nav__link" to="/about">
+						<Link
+							className="nav__link"
+							to="/about"
+							aria-label="Link to About page"
+						>
 							About Me
 						</Link>
 					</Nav>
@@ -236,28 +248,35 @@ function Header({ isFull }: Props) {
 						</span>
 					</HeaderMain>
 
-					<BgLogo src={OaajLogo} alt=" " />
+					<BgLogo src={OaajLogo} alt="" />
 
 					<SocialMediaBox>
 						<a
 							href="https://behance.net/oaaj_digital"
 							target="_blank"
+							aria-label="Link to Behance account"
 						>
 							<FontAwesomeIcon icon={faBehance} size="2x" />
 						</a>
 						<a
 							href="https://github.com/oaaj-digitals"
 							target="_blank"
+							aria-label="Link to GitHub account"
 						>
 							<FontAwesomeIcon icon={faGithub} size="2x" />
 						</a>
 						<a
 							href="https://instagram.com/oaaj_digital"
 							target="_blank"
+							aria-label="Link to Instagram account"
 						>
 							<FontAwesomeIcon icon={faInstagram} size="2x" />
 						</a>
-						<a href="https://x.com/oaaj_digital" target="_blank">
+						<a
+							href="https://x.com/oaaj_digital"
+							target="_blank"
+							aria-label="Link to X(Twitter) account"
+						>
 							<FontAwesomeIcon icon={faXTwitter} size="2x" />
 						</a>
 					</SocialMediaBox>

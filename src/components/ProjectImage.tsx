@@ -118,7 +118,7 @@ const Tool = s.div`
 const ProjectImage = ({ previewImg, projectLink, tools }: Props) => {
 	return (
 		<ImageBox>
-			<Image src={previewImg} />
+			<Image src={previewImg} alt="" />
 			{projectLink != ("" || undefined) ? (
 				<Backside className="back-side">
 					{tools && (
