@@ -43,7 +43,7 @@ interface Props {
 
 const ImageBox = s.div`
 	display: inline-block;
-	height: 10%;
+	height: 100%;
     overflow: hidden;
 	flex-shrink: 0;
     
