@@ -11,6 +11,7 @@ import frontendCardImg from "../assets/images/milad-fakurian-AVnqBjUdteo-unsplas
 import backendCardImg from "../assets/images/milad-fakurian-2sICkGsJRQY-unsplash.jpg";
 import creativeCardImg from "../assets/images/milad-fakurian-FTrDy_oxjmA-unsplash.jpg";
 import ProjectImage from "../components/ProjectImage";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 const ProjectsGallery = s.div`
 	width: 100%;
@@ -56,22 +57,36 @@ const ProjectsGallery = s.div`
 		scale: 1.5; 
 	}
 
+	@media (max-width: ${breakpoints.tabPort}) {
+		margin-bottom: 5vh;
+	}
 `;
 
 const ProjectSelectorBox = s.div`
 	position: absolute;
 	right: -10px;
-	top: calc((100vh/2) - 20vh);
+	top: calc((100%/1.5) - 20vh);
 	transform: translateY(-50%);
 
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	
+	@media (max-width: ${breakpoints.tabPort}) {
+		top: 8%;
+		right: 50%;
+		transform: translate(50%, 0);
+		flex-direction: row;
+	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		top: 10%;
+	}
 `;
 
 const BgText = s.p`
 	position: absolute;
-	bottom: 25px;
+	bottom: 2.5vh;
 	right: -20px;
 	font-weight: 900;
 	font-size: 7rem;
@@ -83,6 +98,14 @@ const BgText = s.p`
 	opacity: .3;
 	z-index: -1;
 
+	@media (max-width: ${breakpoints.tabPort}) {
+		bottom: -2vh;
+		font-size: 6rem;
+	}
+
+	@media (max-width: ${breakpoints.phone}) {
+		font-size: 4rem;
+	}
 `;
 
 type ProjectsData = {

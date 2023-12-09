@@ -11,6 +11,7 @@ import {
 	faJs,
 } from "@fortawesome/free-brands-svg-icons";
 import { ReactNode } from "react";
+import { breakpoints } from "../utils/MediaBreakpoints";
 
 interface ToolsType {
 	[key: string]: ReactNode;
@@ -42,21 +43,33 @@ interface Props {
 
 const ImageBox = s.div`
 	display: inline-block;
-	height: 100%;
+	height: 10%;
+    overflow: hidden;
+	flex-shrink: 0;
     
     &:hover .back-side {
         opacity: 1;
     }
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		width: 92%;
+	}
 `;
 
 const Image = s.img`
+	display: block;
     height: 100%;
+
+	@media (max-width: ${breakpoints.tabPort}) {
+		width: 100%;
+		height: auto;
+	}
 `;
 
 const Backside = s.div`
     width: 100%;
     height: 100%;
-	padding: 0 3rem 2rem;
+	padding: 0 2vh 1vh;
     overflow: hidden;
     background: linear-gradient(to right bottom, var(--color-black), rgba(0,0,0,0.4));
     position: absolute;
@@ -74,6 +87,7 @@ const Backside = s.div`
         display: inline;
         color: var(--color-white);
         cursor: pointer;
+		align-self: flex-start;
     }
 
     & > a:hover{
