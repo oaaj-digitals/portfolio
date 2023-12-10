@@ -2,9 +2,56 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<link
+			id="favicon"
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicons/logo-black.svg"
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite + React + TS</title>
+		<title>OAAJ's Portfolio</title>
+
+		<meta property="og:title" content="OAAJ's Portfolio" />
+		<meta
+			property="og:description"
+			content="Hello, am Japhet Oluwadamilola Akintade, I am a Web Developer and Creative Designer based in Nigeria."
+		/>
+		<meta
+			property="og:url"
+			content="https://portfolio-sable-eight-24.vercel.app/"
+		/>
+		<meta
+			property="og:image"
+			content="https://portfolio-sable-eight-24.vercel.app/preview.png"
+		/>
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:type" content="website" />
+
+		<meta
+			name="description"
+			content="Hello, am Japhet Oluwadamilola Akintade, I am a Web Developer and Creative Designer based in Nigeria. I am highly skilled with more than 2 years experience in the industry,having an in-depth knowledge on web development, logo design, branding and creative design."
+		/>
+		<meta
+			name="keywords"
+			content="web development, website development, web design, website design, creative design, graphics design, HTML, CSS, JavaScript, TypeScript, React, GitHub, logo design, front-end, front-end development, back-end, back-end development, responsive web design, responsive web development, accessibility, performance, optimization, Django, NodeJs, full-stack development, full-stack, APIs, brand identity, visual identity, product design, figma, Adobe Xd, Adobe Photoshop, Adobe Illustrator, flyers, brochures, business cards, presentations, magazines, user interface, social media graphics, facebook covers, twuitter headers, freelancing, remote works, project management, project collaboration, innovation, innovative, crative, creative solution, portfolio, OAAJ, OAAJ portfolio, for freelance work, for remote work, ability to solve complex design and development problem, innovative and creative solution, passionate about design and technology, computer science, user experience, web graphics, label design, custom site, custom development, database, logo, branding, UI/UX, product design"
+		/>
+		<script>
+			const icons = [
+				"/favicons/logo-black.svg",
+				"/favicons/logo-green.svg",
+				"/favicons/logo-orange.svg",
+				"/favicons/logo-blue.svg",
+			];
+
+			let currentIcon = 0;
+
+			setInterval(() => {
+				currentIcon = (currentIcon + 1) % icons.length;
+				document.getElementById("favicon").href = icons[currentIcon];
+			}, 300000);
+		</script>
 	</head>
 	<body>
 		<div id="root"></div>
